@@ -1,9 +1,0 @@
-{
-  "kind": "ExecCredential",
-  "apiVersion": "client.authentication.k8s.io/v1alpha1",
-  "spec": {},
-  "status": {
-    "expirationTimestamp": "2021-04-18T03:39:07Z",
-    "token": "k8s-aws-v1.aHR0cHM6Ly9zdHMuYXAtbm9ydGhlYXN0LTMuYW1hem9uYXdzLmNvbS8_QWN0aW9uPUdldENhbGxlcklkZW50aXR5JlZlcnNpb249MjAxMS0wNi0xNSZYLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFTUEk0SVNVTVBJTkRONFFYJTJGMjAyMTA0MTglMkZhcC1ub3J0aGVhc3QtMyUyRnN0cyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjEwNDE4VDAzMjUwN1omWC1BbXotRXhwaXJlcz02MCZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QlM0J4LWs4cy1hd3MtaWQmWC1BbXotU2lnbmF0dXJlPWZlZDg0NDFhNjg0NjE0YjQ5Y2IzZTk0ZWE1OTAyMjNkMjE2NzExYmQzYTMyOTQyOTZkMmVlNTA4MDQ0NGUwZmU"
-  }
-}
