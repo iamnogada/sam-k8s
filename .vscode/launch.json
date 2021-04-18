@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-WebappApplication<webapp>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "mainClass": "net.kubepia.sam.webapp.WebappApplication",
+      "projectName": "webapp",
+      "args": ""
+    }
+  ]
+}
