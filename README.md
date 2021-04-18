@@ -12,4 +12,7 @@
 - 개발 환경: visual studio code
 - JDK 11 이상
 - docker 설치
-- 
+- (optional) kubectx
+
+
+[Go To Get Started](doc/Readme.md)
