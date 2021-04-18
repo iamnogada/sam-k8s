@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: net.kubepia.sam.webapp.WebappApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.614 s - in net.kubepia.sam.webapp.WebappApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.266 s - in net.kubepia.sam.webapp.WebappApplicationTests
