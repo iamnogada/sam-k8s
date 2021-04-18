@@ -4,9 +4,10 @@
 graph LR
   client -- http/https --> ingress
   subgraph cluster
-  ingress -- offload --> service
-  service --> pod#1
-  service --> pod#2
+  ingress -- http --> s((service))
+  s((service)) --> c(pod#1) & d(pod#2)
+  deployment--- |control|c(pod#1) & d(pod#2)
+  A([configmap]) -. inject data .->deployment
   end
 
 ```
