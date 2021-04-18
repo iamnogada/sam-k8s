@@ -1,17 +1,11 @@
 package net.kubepia.sam.webapp;
 
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import net.kubepia.sam.webapp.employee.Employee;
-import net.kubepia.sam.webapp.employee.EmployeeRepository;
 
 
 @SpringBootApplication
