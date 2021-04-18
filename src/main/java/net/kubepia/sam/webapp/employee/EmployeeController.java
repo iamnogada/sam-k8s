@@ -21,6 +21,11 @@ public class EmployeeController {
     
     return this.employeeRepository.findAll();
   }
+  @GetMapping("/")
+  public @ResponseBody Iterable<Employee> getAll(){
+    
+    return this.employeeRepository.findAll();
+  }
 
   @GetMapping("/{id}")
   public @ResponseBody Optional<Employee> getEmployee(@PathVariable Long id){

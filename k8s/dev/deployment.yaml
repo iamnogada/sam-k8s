@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: employees
+  labels:
+    app: employees
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: employees
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: employees
+    spec:
+      containers:
+        - name: employees
+          image: nogada/employees
+          imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 300m
+              memory: 256Mi
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 60
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 5
+          volumeMounts:
+          - name: spring-properties
+            mountPath: /app/config
+      volumes:
+      - name: spring-properties
+        configMap:
+          name: config
