@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: employeedb
+  labels:
+    app: dbms
+spec:
+  selector:
+    matchLabels:
+      app: employeedb # has to match .spec.template.metadata.labels
+  serviceName: "employeedb"
+  replicas: 1 # by default is 1
+  template:
+    metadata:
+      labels:
+        app: employeedb # has to match .spec.selector.matchLabels
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: employeedb
+        image: mariadb
+        ports:
+        - containerPort: 3306
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: passw@rd
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: employeedb
+spec:
+  selector:
+    app: employeedb
+  ports:
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306
