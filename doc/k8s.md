@@ -154,4 +154,71 @@ spec:
 ```
 
 ### Storage 사용방법
-https://kubernetes.io/docs/concepts/storage/persistent-volumes/
+ref) [kubernetes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
+
+[![](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFJcbiAgQVtjbGllbnRdIC0tPiBCW3NlcnZpY2VdXG4gIEIgLS0-IENbcG9kXVxuICBDIC0tPnx2b2x1bWUgbW91bnR8IERbcHZjXVxuICBFW3B2XSAtLiBwcm92aXNpb24gLi0-IERcbiAgRSAtLiBzcGVjIC4tPiBGW3N0b3JhZ2UgY2xhc3NdIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFJcbiAgQVtjbGllbnRdIC0tPiBCW3NlcnZpY2VdXG4gIEIgLS0-IENbcG9kXVxuICBDIC0tPnx2b2x1bWUgbW91bnR8IERbcHZjXVxuICBFW3B2XSAtLiBwcm92aXNpb24gLi0-IERcbiAgRSAtLiBzcGVjIC4tPiBGW3N0b3JhZ2UgY2xhc3NdIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
+
+### 구성요소
+
+* storage class : Block/File system을 연결하기 위한 기능 제공. CSI(Container Storage Inteface)를 통해  
+  스토리지의 Life cycle을 지원함
+* PV(Persistent Volume): 제공되는 저장소 Instance로서 accessmode(R/W/Once/Many)와 용량 재사용방법등의 정보를 관리함  
+  ```yaml
+  apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    name: pv0003
+  spec:
+    capacity:
+      storage: 5Gi
+    volumeMode: Filesystem
+    accessModes:
+      - ReadWriteOnce
+    persistentVolumeReclaimPolicy: Recycle
+    storageClassName: slow
+    mountOptions:
+      - hard
+      - nfsvers=4.1
+    nfs:
+      path: /tmp
+      server: 172.17.0.2
+  ```
+* PVC(Persistent Volume Claim) : Storage를 사용하는 pod과 실제 PV를 mapping처리  
+  ```yaml
+  apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+    name: myclaim
+  spec:
+    accessModes:
+      - ReadWriteOnce
+    volumeMode: Filesystem
+    resources:
+      requests:
+        storage: 8Gi
+    storageClassName: slow
+    selector:
+      matchLabels:
+        release: "stable"
+      matchExpressions:
+        - {key: environment, operator: In, values: [dev]}
+  ```
+* 사용예  
+  ```yaml
+  apiVersion: v1
+  kind: Pod
+  metadata:
+    name: mypod
+  spec:
+    containers:
+      - name: myfrontend
+        image: nginx
+        volumeMounts:
+        - mountPath: "/var/www/html"
+          name: mypd
+    volumes:
+      - name: mypd
+        persistentVolumeClaim:
+          claimName: myclaim
+  ```
+

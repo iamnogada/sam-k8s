@@ -11,3 +11,13 @@ graph LR
   end
 
 ```
+
+``` mermaid
+graph LR
+  A[client] --> B[service]
+  B --> C[pod]
+  C -->|volume mount| D[pvc]
+  E[pv] -. provision .-> D
+  E -. spec .-> F[storage class]
+
+```
