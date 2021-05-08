@@ -5,8 +5,9 @@ FROM maven:3.8.1-jdk-11 AS build
 # 필요한 파일을 local에서 container로 복사
 COPY src /usr/src/app/src
 COPY pom.xml /usr/src/app
+# RUN mvn -f /usr/src/app/pom.xml clean dependency:go-offline -B
 # maven build를 실행
-RUN mvn -f /usr/src/app/pom.xml clean package -DskipTests
+RUN --mount=type=cache,target=~/.m2 mvn -f /usr/src/app/pom.xml clean package -DskipTests
 
 # Target 컨테이너의 기준 container 선언
 FROM openjdk:11

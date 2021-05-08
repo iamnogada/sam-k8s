@@ -4,7 +4,11 @@ kind: Kustomization
 bases:
 - ../base
 
-namespace: dev
+namespace: sam
+
+images:
+- name: nogada/employees
+  newTag: v8
 
 patchesStrategicMerge:
 - deployment.yaml

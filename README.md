@@ -14,5 +14,6 @@
 - docker 설치
 - (optional) kubectx
 
+ref) https://12factor.net/
 
 [Go To Get Started](doc/Readme.md)

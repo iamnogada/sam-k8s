@@ -15,14 +15,15 @@ spec:
         app: employees
     spec:
       containers:
-        - name: employees
-          image: nogada/employees
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 8080
-          volumeMounts:
-          - name: spring-properties
-            mountPath: /app/config
+      - name: employees
+        image: nogada/employees:latest
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 8080
+            name: tomcat
+        volumeMounts:
+        - name: spring-properties
+          mountPath: /app/config
       volumes:
       - name: spring-properties
         configMap:

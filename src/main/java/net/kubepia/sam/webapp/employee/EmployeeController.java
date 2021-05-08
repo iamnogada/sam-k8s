@@ -16,16 +16,12 @@ public class EmployeeController {
   @Autowired
   EmployeeRepository employeeRepository;
 
-  @GetMapping("/all")
+  @GetMapping("")
   public @ResponseBody Iterable<Employee> getAllEmployees(){
     
     return this.employeeRepository.findAll();
   }
-  @GetMapping("/")
-  public @ResponseBody Iterable<Employee> getAll(){
-    
-    return this.employeeRepository.findAll();
-  }
+  
 
   @GetMapping("/{id}")
   public @ResponseBody Optional<Employee> getEmployee(@PathVariable Long id){

@@ -25,6 +25,16 @@ public class WebappApplication {
 		log.info("hello");
 		return "Employee API Home";
 	}
+	@GetMapping("/liveness")
+	public String liveness() {
+		log.info("liveness check");
+		return "OK";
+	}
+	@GetMapping("/readiness")
+	public String readyness() {
+		log.info("readiness check");
+		return "OK";
+	}
 
 	// @Autowired
   // EmployeeRepository employeeRepository;
