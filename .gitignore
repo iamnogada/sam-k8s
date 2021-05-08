@@ -23,7 +23,7 @@
 hs_err_pid*
 
 temp
+temp.yaml
 .DS_Store
 
 target/
-**/temp.*
