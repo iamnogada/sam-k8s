@@ -15,4 +15,5 @@ spec:
           service:
             name: employees
             port:
-              number: 80
+              name: http
+              # number: 80 name or number로 표시

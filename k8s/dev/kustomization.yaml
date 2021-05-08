@@ -12,6 +12,8 @@ images:
 
 patchesStrategicMerge:
 - deployment.yaml
+
+resources:
 - ingress.yaml
 
 configMapGenerator:
