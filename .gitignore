@@ -26,3 +26,4 @@ temp
 .DS_Store
 
 target/
+temp.*
