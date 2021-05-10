@@ -1,0 +1,19 @@
+apiVersion: v1
+clusters:
+- cluster:
+    insecure-skip-tls-verify: true
+    server: https://693DD95EE85CA8EF4A2B5452DF30B219.sk1.ap-northeast-2.eks.amazonaws.com
+  name: htdp1-cluster-001
+contexts:
+- context:
+    cluster: htdp1-cluster-001
+    namespace: sam
+    user: admin
+  name: htdp1-cluster-001
+current-context: htdp1-cluster-001
+kind: Config
+preferences: {}
+users:
+- name: admin
+  user:
+    token: eyJhbGciOiJSUzI1NiIsImtpZCI6IkNsZVJXMWtrSGU1Zmw0UEFtdTVtMVJsMW9NQ0k3OTZ2Y3dDVngwWGhFb3cifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJhZG1pbi10b2tlbi1nNDlrbCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50Lm5hbWUiOiJhZG1pbiIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6ImM4NDEzNjg2LWUyZmMtNDZhOC1hNTgyLTVlZjkyODY2MWExMSIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDprdWJlLXN5c3RlbTphZG1pbiJ9.nCvphwVkWQH_OA4f0RdTZ-qyqLWjjTblaEFFc6F3fKxX-4OtOCFvhPl3Y22aLgwRfeoqDPUoMqAoP6bfQ-qCIdqgsXGQ42R3MGGBCO0ThahOVSz6FuDsJgSbWWT6f98I7hmxMLmuY3ljPg3L1yBYe6iH-9I6ckXkQgpx58h7keluI4xCQSdYhK8yjN70-DtohA9ZS9CjAumhFfkRl2nTBDy8-VtB-YJO4GAqNg2Z0zsbSsyhLjxkUwA7xQiFn763xtWkFNJAuqEVtAZ7m9z65M1ZNdCl-5sPZoExpBO-xiAkhlnTo57QYbrXpSEIPXw2gog1U2fDRP8JlRVK09mBwA
