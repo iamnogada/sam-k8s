@@ -17,3 +17,15 @@
 ref) https://12factor.net/
 
 [Go To Get Started](doc/Readme.md)
+
+
+
+
+
+call https://github.com/iamnogada/sam-k8s/blob/main/doc/k8s.md
+
+http://service:665/app/v1//k8s.md
+
+http://service:665/foo/app --> service foo --> foo pod
+http://service:665/boo/app --> service boo --> boo pod
+
